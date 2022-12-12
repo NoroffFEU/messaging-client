@@ -1,4 +1,4 @@
-import { renderPostThumbnails } from "../inbox.js";
+import { renderPostThumbnailError, renderPostThumbnails } from "../inbox.js";
 
 export function setupSearch(posts, container) {
   const searchForm = document.querySelector("form#search");
@@ -19,7 +19,11 @@ export function setupSearch(posts, container) {
       return title.includes(term) || body.includes(term) || author.includes(term) || tagsMatch;
     })
 
-    renderPostThumbnails(filteredPosts, container);
+    if (filteredPosts.length > 0) {
+      renderPostThumbnails(filteredPosts, container);
+    } else {
+      renderPostThumbnailError("There are no messages that match your search term.", "warning", container)
+    }
   });
 }
 

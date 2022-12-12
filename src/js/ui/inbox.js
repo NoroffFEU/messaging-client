@@ -27,7 +27,7 @@ export function renderPostThumbnails(posts, container) {
   container.append(...thumbnails);
 }
 
-export function renderPostThumbnailError(message, type) {
+export function renderPostThumbnailError(message, type, container) {
   const alert = new AlertMessage(message, type);
   container.clear();
   container.append(alert.render())
@@ -42,10 +42,10 @@ export async function inboxSidebar() {
     if (posts.length) {
       renderPostThumbnails(posts, container)
     } else {
-      renderPostThumbnailError("You have no messages in your inbox", "info")
+      renderPostThumbnailError("You have no messages in your inbox", "info", container)
     }
   } catch(error) {
-    renderPostThumbnailError("There was an error accessing your inbox", "danger")
+    renderPostThumbnailError("There was an error accessing your inbox", "danger", container)
   }
 }
 
