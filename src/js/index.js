@@ -19,6 +19,7 @@ async function app() {
 
   switch(location.pathname) {
     case "/inbox/":
+    case "/inbox/message/":
       inboxView();
   }
 

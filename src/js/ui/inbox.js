@@ -13,7 +13,7 @@ async function onNewMessage(event) {
 
   try {
     const post = await posts.create(data);
-    console.log(post);
+    location.href = `/inbox/message/?id=${post.id}`
   } catch (error) {
     console.warn(error);
     alert("Your message could not be delivered at this time.")
@@ -42,7 +42,11 @@ async function inboxSidebar() {
 }
 
 function newMessageForm() {
-  document.querySelector("form#new").addEventListener("submit", onNewMessage);
+  const form = document.querySelector("form#new");
+
+  if (form) {
+    form.addEventListener("submit", onNewMessage);
+  }
 }
 
 export async function inboxView() {
