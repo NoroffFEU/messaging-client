@@ -14,12 +14,11 @@
 <body class="bg-dark layout min-vh-100">
 
   <div class="card d-flex flex-column flex-grow-1">
-    <form id="search" class="d-flex">
+    <form id="search">
       <div class="form-floating">
         <input required minlength="3" name="term" type="search" class="form-control" id="searchInput" placeholder="Search Inbox">
         <label for="floatingInput">Search Inbox</label>
       </div>
-      <button class="btn btn-success flex-grow-1">Search</button>
     </form>
     <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white overflow-auto flex-grow-1">
       <div id="messages" class="list-group list-group-flush border-bottom scrollarea">

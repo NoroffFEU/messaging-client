@@ -6,8 +6,8 @@ export class PostThumbnail {
   }
 
   get excerpt() {
-    if (this.body.length > 50) {
-      return this.body.substr(0, 50);
+    if (this.body && this.body.length > 50) {
+      return this.body ? this.body.substr(0, 50) : "";
     }
     return this.body;
   }

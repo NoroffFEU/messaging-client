@@ -45,6 +45,7 @@ export async function inboxSidebar() {
       renderPostThumbnailError("You have no messages in your inbox", "info", container)
     }
   } catch(error) {
+    console.warn(error)
     renderPostThumbnailError("There was an error accessing your inbox", "danger", container)
   }
 }
