@@ -1,6 +1,7 @@
 export const API_BASE = "https://api.noroff.dev/api/v1/social";
 export const API_POSTS = "/posts";
 export const API_AUTH_LOGIN = "/auth/login";
+export const API_PROFILE = "/profiles";
 
 export const login = () => {
   return new URL(API_BASE + API_AUTH_LOGIN);
@@ -19,6 +20,10 @@ export const listPosts = (limit = 100, offset = 0) => {
 
 export const createPost = () => {
   return new URL(API_BASE + API_POSTS);
+}
+
+export const profiles = () => {
+  return new URL(API_BASE + API_PROFILE);
 }
 
 export const headers = (body = false) => {

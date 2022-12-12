@@ -1,5 +1,6 @@
 import posts from "../api/posts/index.js";
 import { getPosts } from "../api/posts/read.js";
+import { setupProfileSelect } from "./profile-select.js";
 import { setupSearch } from "./search/index.js";
 import { AlertMessage } from "./templates/alert-message.js";
 import { PostThumbnail } from "./templates/post-thumbnail.js";
@@ -52,6 +53,8 @@ export async function inboxSidebar() {
 
 export function newMessageForm() {
   const form = document.querySelector("form#new");
+
+  setupProfileSelect()
 
   if (form) {
     form.addEventListener("submit", onNewMessage);
