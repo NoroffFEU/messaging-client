@@ -1,5 +1,6 @@
 import posts from "../api/posts/index.js";
 import { getPosts } from "../api/posts/read.js";
+import { setupSearch } from "./search/index.js";
 import { AlertMessage } from "./templates/alert-message.js";
 import { PostThumbnail } from "./templates/post-thumbnail.js";
 
@@ -24,6 +25,8 @@ async function inboxSidebar() {
   const container = document.querySelector("#messages");
   try {
     const posts = await getPosts();
+    setupSearch(posts);
+
     if (posts.length) {
       const thumbnails = posts.map(post => (new PostThumbnail(post)).render());
       container.clear();
