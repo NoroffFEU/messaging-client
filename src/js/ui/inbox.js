@@ -4,7 +4,7 @@ import { setupSearch } from "./search/index.js";
 import { AlertMessage } from "./templates/alert-message.js";
 import { PostThumbnail } from "./templates/post-thumbnail.js";
 
-async function onNewMessage(event) {
+export async function onNewMessage(event) {
   event.preventDefault();
   const form = event.target;
   const formData = new FormData(form);
@@ -21,30 +21,35 @@ async function onNewMessage(event) {
   }
 }
 
-async function inboxSidebar() {
+export function renderPostThumbnails(posts, container) {
+  const thumbnails = posts.map(post => (new PostThumbnail(post)).render());
+  container.clear();
+  container.append(...thumbnails);
+}
+
+export function renderPostThumbnailError(message, type) {
+  const alert = new AlertMessage(message, type);
+  container.clear();
+  container.append(alert.render())
+}
+
+export async function inboxSidebar() {
   const container = document.querySelector("#messages");
   try {
     const posts = await getPosts();
-    setupSearch(posts);
+    setupSearch(posts, container);
 
     if (posts.length) {
-      const thumbnails = posts.map(post => (new PostThumbnail(post)).render());
-      container.clear();
-      container.append(...thumbnails);
+      renderPostThumbnails(posts, container)
     } else {
-      const alert = new AlertMessage("You have no messages in your inbox", "info");
-      container.clear();
-      container.append(alert.render())
+      renderPostThumbnailError("You have no messages in your inbox", "info")
     }
   } catch(error) {
-    console.warn(error);
-    const alert = new AlertMessage("There was an error accessing your inbox", "danger");
-    container.clear();
-    container.append(alert.render())
+    renderPostThumbnailError("There was an error accessing your inbox", "danger")
   }
 }
 
-function newMessageForm() {
+export function newMessageForm() {
   const form = document.querySelector("form#new");
 
   if (form) {

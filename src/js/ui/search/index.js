@@ -1,4 +1,6 @@
-export function setupSearch(posts) {
+import { renderPostThumbnails } from "../inbox.js";
+
+export function setupSearch(posts, container) {
   const searchForm = document.querySelector("form#search");
 
   searchForm.addEventListener("submit", function (event) {
@@ -16,6 +18,8 @@ export function setupSearch(posts) {
 
       return title.includes(term) || body.includes(term) || author.includes(term) || tagsMatch;
     })
+
+    renderPostThumbnails(filteredPosts, container);
   });
 }
 
