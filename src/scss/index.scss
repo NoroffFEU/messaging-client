@@ -1,0 +1,18 @@
+$border-radius: 0;
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.card {
+  &-loading {
+    .list-group-item {
+      opacity: 0.2;
+    }
+  }
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 20rem 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}

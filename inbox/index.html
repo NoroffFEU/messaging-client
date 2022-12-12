@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="/dist/css/index.css">
+  <script src="/src/js/index.js" type="module" defer></script>
+</head>
+
+<body class="bg-dark layout min-vh-100">
+
+  <div class="card d-flex flex-column flex-grow-1">
+    <form id="search">
+      <div class="form-floating">
+        <input type="search" class="form-control" id="searchInput" placeholder="Search Inbox">
+        <label for="floatingInput">Search Inbox</label>
+      </div>
+    </form>
+    <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white overflow-auto flex-grow-1">
+      <div id="messages" class="list-group list-group-flush border-bottom scrollarea">
+        <div class="spinner-grow mx-auto my-5 bg-dark" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form class="card" id="new">
+    <div class="d-flex">
+      <div class="form-floating flex-grow-1">
+        <input required type="search" class="form-control" id="searchInput" name="title" placeholder="Message Title">
+        <label for="floatingInput">Message Title</label>
+      </div>
+      <div class="form-floating">
+        <select class="form-select" id="recipient" name="recipient" required>
+          <option selected>Select User</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <label for="recipient">Recipient</label>
+      </div>
+    </div>
+    
+    <div class="form-floating flex-grow-1 d-flex">
+      <textarea required class="form-control flex-grow-1 h-auto" placeholder="Message Body" name="body" id="body"></textarea>
+      <label for="floatingTextarea">Message Body</label>
+    </div>
+    <div class="card-footer d-flex align-items-center justify-content-between">
+      <button class="btn btn-success">Send</button>
+    </div>
+  </form>
+
+</body>
+
+</html>
