@@ -25,7 +25,7 @@ async function inboxSidebar() {
   try {
     const posts = await getPosts();
     if (posts.length) {
-      const thumbnails = posts.map(post => new PostThumbnail(post));
+      const thumbnails = posts.map(post => (new PostThumbnail(post)).render());
       container.clear();
       container.append(...thumbnails);
     } else {
