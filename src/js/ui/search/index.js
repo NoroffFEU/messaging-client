@@ -16,8 +16,6 @@ export function setupSearch(posts, container) {
       return
     }
 
-    console.log('SPAM');
-
     const term = searchTerm.toLowerCase();
   
     const filteredPosts = posts.filter(function (post) {

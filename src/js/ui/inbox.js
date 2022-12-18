@@ -1,5 +1,5 @@
 import posts from "../api/posts/index.js";
-import { getPosts } from "../api/posts/read.js";
+import { getPosts } from "../api/posts/list.js";
 import { setupProfileSelect } from "./profile-select.js";
 import { setupSearch } from "./search/index.js";
 import { AlertMessage } from "./templates/alert-message.js";
@@ -48,6 +48,14 @@ export async function inboxSidebar() {
   } catch(error) {
     console.warn(error)
     renderPostThumbnailError("There was an error accessing your inbox", "danger", container)
+  }
+}
+
+export async function inboxMessageZone() {
+  const card = document.querySelector("#view");
+
+  if (card) {
+
   }
 }
 

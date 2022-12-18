@@ -1,0 +1,1 @@
+export default (htmlString) => new DOMParser().parseFromString(htmlString, "text/html").body.firstChild;

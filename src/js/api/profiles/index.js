@@ -1,15 +1,11 @@
-import * as constants from "../constants.js";
+import list from "./list.js";
+import read from "./read.js";
+import update from "./update.js";
+import posts from "./posts.js";
 
-export async function getProfiles() {
-  const response = await fetch(constants.profiles(), {
-    headers: constants.headers()
-  });
-
-  const result = await response.json();
-
-  if (response.ok) {
-    return await result;
-  }
-
-  throw new Error(JSON.stringify(result.errors))
+export default {
+  list,
+  read,
+  update,
+  posts
 }
